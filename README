@@ -1,5 +1,6 @@
 This repository contains much of the configuration which defines what Pulse
-projects do.
+projects do and some Coin shared code. Below you will find documentation
+only for the first one.
 
 
 HOW IT WORKS:

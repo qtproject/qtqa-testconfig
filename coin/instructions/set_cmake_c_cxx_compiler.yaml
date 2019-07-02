@@ -1,0 +1,30 @@
+type: Group
+instructions:
+  - type: PrependToEnvironmentVariable
+    variableName: CONFIGURE_ARGS
+    variableValue: "-DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc "
+    enable_if:
+      condition: property
+      property: host.compiler
+      contains_value: ICC
+  - type: PrependToEnvironmentVariable
+    variableName: CONFIGURE_ARGS
+    variableValue: "-DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ "
+    enable_if:
+      condition: property
+      property: host.compiler
+      contains_value: GCC
+  - type: PrependToEnvironmentVariable
+    variableName: CONFIGURE_ARGS
+    variableValue: "-DCMAKE_C_COMPILER=cl.exe -DCMAKE_CXX_COMPILER=cl.exe "
+    enable_if:
+      condition: property
+      property: host.compiler
+      contains_value: MSVC
+  - type: PrependToEnvironmentVariable
+    variableName: CONFIGURE_ARGS
+    variableValue: "-DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ "
+    enable_if:
+      condition: property
+      property: host.compiler
+      contains_value: Clang
